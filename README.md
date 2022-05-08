@@ -28,7 +28,7 @@ npm i -D @vinjo/svelte-data-handler
 import { DataHandler } from '@vincjo/svelte-data-handler'
 
 
-const dataHandler = new DataHandler(myJSON, { rowsPerPage: 50 })
+const dataHandler = new DataHandler(myJSON, { itemsPerPage: 50 })
 
 /********************
  *                  *
