@@ -1,8 +1,7 @@
 <script>
 	import { HighlightSvelte, Highlight } from 'svelte-highlight'
 	import { typescript } from 'svelte-highlight/languages'
-	import { code } from '$components/Home/code'
-
+	import { code } from '$components/Code/HomeCode'
 </script>
 
 <section>

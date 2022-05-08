@@ -1,6 +1,20 @@
 <script>
 	import { HighlightSvelte } from 'svelte-highlight'
     import typescript from "svelte-highlight/languages/typescript"
+    import { 
+        initialization,
+        getItems,
+        getItemCoun,
+        sortAsc,
+        sortDesc,
+        search,
+        filter,
+        set,
+        getPages,
+        getPageNumber,
+        getPageCount,
+        setPage
+    } from '$components/Code/ApiCode'
 </script>
 
 
@@ -12,18 +26,7 @@
         <p>DataHandler is a class. The first parameter is an array of data, JSON[] or JavascriptObject[]. The second parameter, optional, is the number of items per page. If not specified, pagination will be simply ignored.</p>
     </div>
     <article class="code">
-        <HighlightSvelte code={`
-<script>
-    import DataHandler from '@vincjo/svelte-data-handler'
-
-    // with pagination :
-    const dataHandler = new DataHandler(myData, { itemsPerPage: 50 })
-
-    // without pagination :
-    const dataHandler = new DataHandler(myData)
-</script>    
-    
-    `}/>
+        <HighlightSvelte code={initialization} language={typescript}/>
     </article>
 </aside>
 
@@ -35,12 +38,7 @@
 		<p>Return the data as a readable store that can dynamically renders sorted, filtered and paginated items.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    const items = dataHandler.getitems()
-    console.log( $items )
-</script>
-    `}/>
+        <HighlightSvelte code={getItems}/>
     </article>
 </aside>
 
@@ -50,13 +48,7 @@
 		<p>Return an object containing the total number of items, start index and end index of items that are displayed into the current page. Each time a filter is applied on data, these numbers will automatically update.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    const itemCount = dataHandler.getItemCount()
-    console.log( $itemCount )
-    // { total: 1000, start: 0, end: 49 } 
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={getItemCoun}/>
     </article>
 </aside>
 
@@ -70,15 +62,7 @@
 		<p>Sort data in ascending order using multiple object key. The function must return a value of type String, Boolean or Number.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    dataHandler.sortAsc('last_name')
-
-    dataHandler.sortAsc( item => {
-        return item.lastname + ' ' + item.firstname
-    })
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={sortAsc}/>
     </article>
 </aside>
 
@@ -91,15 +75,7 @@
         <p>Sort data in descending order using multiple object key. The function must return a value of type String, Boolean or Number.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    dataHandler.sortDesc('last_name')
-    
-    dataHandler.sortDesc( item => {
-        return item.lastname + ' ' + item.firstname
-    })
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={sortDesc}/>
     </article>
 </aside>
 
@@ -112,13 +88,7 @@
         <p>Programmatically reset the global search.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    dataHandler.search('Dupont')
-
-    dataHandler.clearSearch()
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={search}/>
     </article>
 </aside>
 
@@ -134,17 +104,7 @@
         <p>Programmatically reset every filters</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    dataHandler.filter('Jean', 'firstname')
-
-    dataHandler.filter( 'Jean Dupont', (item) => {
-        return item.firstname + ' ' + item.lastname
-    })
-
-    dataHandler.clearFilters()
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={filter}/>
     </article>
 </aside>
 
@@ -156,12 +116,7 @@
         <p>Change dataset without re-instantiating the class</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    // change dataset
-    dataHandler.set(myData)
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={set}/>
     </article>
 </aside>
 
@@ -172,13 +127,7 @@
         <p>Return an array of object representing the pages, in a readable store. The number of pages dynamically updates based on the number of items.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    const pages = dataHandler.getPages()
-
-    console.log( $pages )
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={getPages}/>
     </article>
 </aside>
 
@@ -188,13 +137,7 @@
 		<p>Return the current page number. Each time a filter is applied on data, the page number is set to 1.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    const pageNumber = dataHandler.getPageNumber()
-    console.log( $pageNumber )
-    // 1
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={getPageNumber}/>
     </article>
 </aside>
 
@@ -204,13 +147,7 @@
 		<p>Return the current total number of pages. Each time a filter is applied on data, this number will updates.</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    const pageCount = dataHandler.getPageCount()
-    console.log( $pageCount )
-    // 100
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={getPageCount}/>
     </article>
 </aside>
 
@@ -221,18 +158,7 @@
         <p>Set the page to a defined number. It is possible to switch to next or previous page, simply by using 'next' and 'previous' values</p>
 	</div>
     <article class="code">
-        <HighlightSvelte language={typescript} code={`
-<script>
-    dataHandler.setPage(24)
-    // navigate to the 24th page
-
-    dataHandler.setPage('next')
-    // navigate to the 25th page
-
-    dataHandler.setPage('previous')
-    // navigate to the 24th page
-</script>
-    `}/>
+        <HighlightSvelte language={typescript} code={setPage}/>
     </article>
 </aside>
 
