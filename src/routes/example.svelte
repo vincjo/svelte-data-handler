@@ -1,5 +1,5 @@
 <script>
-	import Example from '$components/Example.svelte'
+	import Index from '$components/Example/Index.svelte'
 </script>
 
-<Example/>
+<Index/>

@@ -1,6 +1,6 @@
 
-export const initialization = `
-<script>
+export const initialization = 
+`<script>
     import DataHandler from '@vincjo/svelte-data-handler'
 
     // with pagination :
@@ -8,55 +8,48 @@ export const initialization = `
 
     // without pagination :
     const dataHandler = new DataHandler(myData)
-</script>    
-    
-    `
+</script>   `
 
-export const getItems = `
-<script>
+export const getItems = 
+`<script>
     const items = dataHandler.getitems()
     console.log( $items )
-</script>
-    `
+</script>`
 
-export const getItemCoun = `
-<script>
+export const getItemCoun = 
+`<script>
     const itemCount = dataHandler.getItemCount()
     console.log( $itemCount )
     // { total: 1000, start: 0, end: 49 } 
-</script>
-    `
+</script>`
 
-export const sortAsc = `
-<script>
+export const sortAsc = 
+`<script>
     dataHandler.sortAsc('last_name')
 
     dataHandler.sortAsc( item => {
         return item.lastname + ' ' + item.firstname
     })
-</script>
-    `
+</script> `
 
-export const sortDesc = `
-<script>
+export const sortDesc = 
+`<script>
     dataHandler.sortDesc('last_name')
     
     dataHandler.sortDesc( item => {
         return item.lastname + ' ' + item.firstname
     })
-</script>
-    `
+</script>`
 
-export const search = `
-<script>
+export const search = 
+`<script>
     dataHandler.search('Dupont')
 
     dataHandler.clearSearch()
-</script>
-    `
+</script>`
 
-export const filter = `
-<script>
+export const filter = 
+`<script>
     dataHandler.filter('Jean', 'firstname')
 
     dataHandler.filter( 'Jean Dupont', (item) => {
@@ -64,42 +57,37 @@ export const filter = `
     })
 
     dataHandler.clearFilters()
-</script>
-    `
+</script>`
 
-export const set = `
-<script>
+export const set = 
+`<script>
     // change dataset
     dataHandler.set(myData)
-</script>
-    `
+</script>`
 
-export const getPages = `
-<script>
+export const getPages = 
+`<script>
     const pages = dataHandler.getPages()
 
     console.log( $pages )
-</script>
-    `
+</script>`
 
-export const getPageNumber = `
-<script>
+export const getPageNumber = 
+`<script>
     const pageNumber = dataHandler.getPageNumber()
     console.log( $pageNumber )
     // 1
-</script>
-    `
+</script>`
 
-export const getPageCount = `
-<script>
+export const getPageCount = 
+`<script>
     const pageCount = dataHandler.getPageCount()
     console.log( $pageCount )
     // 100
-</script>
-    `
+</script>`
 
-export const setPage = `
-<script>
+export const setPage = 
+`<script>
     dataHandler.setPage(24)
     // navigate to the 24th page
 
@@ -108,5 +96,4 @@ export const setPage = `
 
     dataHandler.setPage('previous')
     // navigate to the 24th page
-</script>
-    `
+</script>`

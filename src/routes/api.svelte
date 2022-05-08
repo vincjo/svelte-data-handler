@@ -20,7 +20,7 @@
 
 <h1>API</h1>
 
-<h2>Initialization</h2>
+<h2 style:margin-top="40px">Initialization</h2>
 <aside>
     <div>
         <p>DataHandler is a class. The first parameter is an array of data, JSON[] or JavascriptObject[]. The second parameter, optional, is the number of items per page. If not specified, pagination will be simply ignored.</p>
@@ -171,5 +171,5 @@
     h3 span b{color:var(--tertiary);}
     p{display:block;width:auto;max-width:400px;font-size:16px;line-height:22px;margin:8px 0;padding-left:8px;}
     b{color:var(--secondary)}
-	article{border-radius:8px;padding:0 8px;margin-right:16px;background:var(--hljs);width:600px;}
+	article{border-radius:8px;padding:4px 8px;margin-right:16px;background:var(--hljs);width:600px;}
 </style>
