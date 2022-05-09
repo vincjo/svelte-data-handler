@@ -100,4 +100,23 @@ dataHandler.setPage('previous'): void
 dataHandler.setPage('next'): void
 
 
+
+
+/********************
+ *                  *
+ *      Event       *
+ *                  *
+ ********************/
+
+/* Get a store that increments each time the data is updated */
+const triggerChange = dataHandler.getTriggerChange(): Writable<number>
+
+$: $triggerChange, scrollTop()
+
+const scrollTop = () => {
+	if (element) {
+		element.scrollTop = 0
+	}
+}
+
 ````

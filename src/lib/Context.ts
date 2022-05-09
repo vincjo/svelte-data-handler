@@ -7,7 +7,7 @@ export default class Context
 {
     public  itemsPerPage  : Writable<number|null>
     public  pageNumber    : Writable<number>
-    public  scrollTop     : Writable<number>
+    public  triggerChange : Writable<number>
     public  globalFilter  : Writable<string|null>
     public  localFilters  : Writable<any[]>
     public  rawItems      : Writable<any[]>
@@ -21,7 +21,7 @@ export default class Context
     {
         this.itemsPerPage   = writable(params.itemsPerPage)
         this.pageNumber     = writable(1)
-        this.scrollTop      = writable(0)
+        this.triggerChange  = writable(0)
         this.globalFilter   = writable(null)
         this.localFilters   = writable([])
         this.rawItems       = writable(data)
@@ -45,6 +45,7 @@ export default class Context
                         })
                     })
                     this.pageNumber.set(1)
+                    this.triggerChange.update( store => { return store + 1 }) 
                 }
 
                 if ($localFilters.length > 0) {
@@ -52,6 +53,7 @@ export default class Context
                         return $rawItems = $rawItems.filter( item => filter.key(item).toString().toLowerCase().indexOf(filter.value.toString().toLowerCase()) > -1)
                     })
                     this.pageNumber.set(1)
+                    this.triggerChange.update( store => { return store + 1 }) 
                 }
                 return $rawItems
             } 	
@@ -66,6 +68,7 @@ export default class Context
                 if (!$itemsPerPage) {
                     return $filteredItems
                 }
+                this.triggerChange.update( store => { return store + 1 }) 
                 return $filteredItems.slice( ($pageNumber - 1) * $itemsPerPage, $pageNumber * $itemsPerPage ) 
             }
         ) 

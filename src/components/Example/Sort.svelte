@@ -34,7 +34,7 @@
 
 
 <style>
-    button{margin:8px 0 0 0;display:flex;justify-content:space-between;align-items:center;background:var(--secondary);border:none;height:32px;width:240px;user-select:none;padding:0 16px;border-radius:2px;color:#fafafa;transition:all,0.2s;}
+    button{margin:8px 0 0 0;display:flex;justify-content:space-between;align-items:center;background:var(--secondary);border:none;height:32px;width:240px;user-select:none;padding:0 16px;border-radius:2px;color:#fafafa;transition:all,0.2s;cursor:pointer;}
 	button:focus{outline:2px solid var(--tertiary);}
 	button b{font-weight:normal;}
 	button span{font-size:18px;color:#fff;font-weight:bold;}

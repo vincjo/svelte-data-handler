@@ -4,7 +4,7 @@ import Pages             from '$lib/Handlers/Pages'
 import GlobalSearch      from '$lib/Handlers/GlobalSearch'
 import Filters           from '$lib/Handlers/Filters'
 
-import type { Readable } from 'svelte/store'
+import type { Readable, Writable } from 'svelte/store'
 
 type params = { itemsPerPage: number | null }
 
@@ -87,5 +87,10 @@ export default class DataHandler
             case 'next'    : return this.pages.next()
             default        : return this.pages.goTo(value as number)
         }
+    }
+
+    public getTriggerChange(): Writable<number>
+    {
+        return this.context.triggerChange
     }
 }

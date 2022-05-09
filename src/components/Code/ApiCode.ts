@@ -97,3 +97,24 @@ export const setPage =
     dataHandler.setPage('previous')
     // navigate to the 24th page
 </script>`
+
+export const getTriggerChange = 
+`<script>
+    export let dataHandler
+
+    let element: HTMLElement | null
+    const triggerChange = dataHandler.getTriggerChange()
+        
+    $: $triggerChange, scrollTop()
+
+    const scrollTop = () => {
+        if (element) {
+            element.scrollTop = 0
+        }
+    }
+</script>
+
+<div bind:this={element}>
+
+</div>
+`

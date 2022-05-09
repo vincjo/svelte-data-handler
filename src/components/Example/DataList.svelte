@@ -1,10 +1,23 @@
-<script>
+<script lang="ts">
     export let dataHandler
 
+    let element: HTMLElement | null
+
     const items = dataHandler.getItems()
+
+    const triggerChange = dataHandler.getTriggerChange()
+    
+    $: $triggerChange, scrollTop()
+    
+    const scrollTop = () => {
+        if (element) {
+            element.scrollTop = 0
+        }
+    }
+
 </script>
 
-<ul class="parent thin-scrollbar">
+<ul class="parent thin-scrollbar" bind:this={element}>
     <li>
         {#each $items as item}
         <ul class="z-depth-1">

@@ -13,7 +13,8 @@
         getPages,
         getPageNumber,
         getPageCount,
-        setPage
+        setPage,
+        getTriggerChange
     } from '$components/Code/ApiCode'
 </script>
 
@@ -144,7 +145,7 @@
 <aside>
     <div>
         <h3>getPageCount()<span>: Readable{`<number>`}</span></h3>
-		<p>Return the current total number of pages. Each time a filter is applied on data, this number will updates.</p>
+		<p>Return the current total number of pages. Each time a filter is applied on data, this number will updates. </p>
 	</div>
     <article class="code">
         <HighlightSvelte language={typescript} code={getPageCount}/>
@@ -159,6 +160,18 @@
 	</div>
     <article class="code">
         <HighlightSvelte language={typescript} code={setPage}/>
+    </article>
+</aside>
+
+<h2>Triggering events</h2>
+<aside>
+    <div>
+        <h3>getTriggerChange()<span>: Writable{`<number>`}</span></h3>
+        <p>Some events may be related to user interactions, or component-specific. The TriggerChange store allows to detect changes and trigger a function.</p>
+        <p>The TriggerChange store is simply a numeric value that increments each time an interaction is performed on the data.</p>
+	</div>
+    <article class="code">
+        <HighlightSvelte language={typescript} code={getTriggerChange}/>
     </article>
 </aside>
 

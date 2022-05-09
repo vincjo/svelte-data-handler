@@ -3,18 +3,18 @@ import type { Writable, Readable } from 'svelte/store'
 
 export default class Pages
 {
-    public pageNumber   : Writable<number>
-    public itemCount    : Readable<{ total: number; start: number; end: number; }>
-    public itemsPerPage : Writable<number|null>
-    public scrollTop    : Writable<number>
-    public pages        : Readable<any[]>
+    public pageNumber    : Writable<number>
+    public itemCount     : Readable<{ total: number; start: number; end: number; }>
+    public itemsPerPage  : Writable<number|null>
+    public triggerChange : Writable<number>
+    public pages         : Readable<any[]>
 
     constructor(context: Context)
     {
         this.pageNumber    = context.pageNumber
         this.itemCount     = context.itemCount
         this.itemsPerPage  = context.itemsPerPage
-        this.scrollTop     = context.scrollTop
+        this.triggerChange = context.triggerChange
         this.pages         = context.pages
     }
 
@@ -31,7 +31,7 @@ export default class Pages
                 const $itemsTotal = this.getTotalItemCout()
                 if ( number >= 1 && number <= Math.ceil($itemsTotal / $rowsPerPage) ) {
                     store = number
-                    this.scrollTop.set(0)
+                    this.triggerChange.update( store => { return store + 1 })
                 }
             }
             return store
