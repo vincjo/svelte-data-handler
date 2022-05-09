@@ -21,6 +21,6 @@
 
 	aside{display:flex;justify-content:flex-start;align-items: center;height:40px;}
 	aside p{margin:0 8px;}
-	aside button{background:var(--secondary);width:40px;border:1px solid #e0e0e0;padding:8px 0;border-radius:4px;text-transform:uppercase;color:#eee;cursor:pointer;transition:all,0.2s;}
-	button:focus{outline:2px solid var(--tertiary)}
+	button{background:var(--secondary);width:40px;border:none;padding:8px 0;border-radius:4px;text-transform:uppercase;color:#fafafa;cursor:pointer;transition:all,0.2s;}
+	button:focus{outline:2px solid var(--tertiary);}
 </style>

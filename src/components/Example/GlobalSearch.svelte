@@ -18,6 +18,6 @@
 />
 
 <style>
-	input{margin:8px 0;padding:8px;border:2px solid #e0e0e0;border-radius:4px;width:240px;transition:all,0.2s;}
-    input:focus{outline:2px solid var(--tertiary);}
+	input{margin:8px 0;padding:8px;border:none;border-radius:4px;width:240px;transition:all,0.2s;border:2px solid var(--tertiary)}
+    input:focus{outline:2px solid var(--tertiary);border:2px solid var(--secondary)}
 </style>

@@ -19,44 +19,24 @@
 
 </script>
 
-<p class="{sorted}" on:click={() => sort()}>
-    <b>{key.name}</b>
-    <span/>
-</p>
+<button class="{sorted}" on:click={() => sort()}>
+    <b>Sort '{key.name}'</b>
+    <span>
+		{#if sorted === 'asc'}
+		&#8593;
+		{:else if sorted === 'desc'}
+		&#8595;
+		{:else}
+		&#8596;
+		{/if}
+	</span>
+</button>
 
 
 <style>
-    p{margin:8px 0 0 0;display:flex;justify-content:space-between;align-items:center;height:32px;width:240px;user-select:none;border-bottom:1px solid #e0e0e0;background:#fff;padding:0 8px 0 16px;border-radius:2px;}
-	p b{font-weight:normal;}
-
-	span {
-		padding-right: 16px;
-		position: relative;
-	}
-	span:before,
-	span:after {
-		border: 4px solid transparent;
-		content: '';
-		display: block;
-		height: 0;
-		right: 0;
-		top: 50%;
-		position: absolute;
-		width: 0;
-	}
-	span:before {
-		border-bottom-color: #bdbdbd;
-		margin-top: -9px;
-	}
-	span:after {
-		border-top-color: #bdbdbd;
-		margin-top: 1px;
-	}
-	p.asc span:before {
-		border-bottom-color: #616161;
-	}
-	p.desc span:after {
-		border-top-color: #616161;
-	}
+    button{margin:8px 0 0 0;display:flex;justify-content:space-between;align-items:center;background:var(--secondary);border:none;height:32px;width:240px;user-select:none;padding:0 16px;border-radius:2px;color:#fafafa;transition:all,0.2s;}
+	button:focus{outline:2px solid var(--tertiary);}
+	button b{font-weight:normal;}
+	button span{font-size:18px;color:#fff;font-weight:bold;}
 
 </style>
