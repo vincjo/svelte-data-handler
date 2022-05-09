@@ -10,7 +10,7 @@
 			<h1>DataHandler</h1>
 			<p><b>DataHandler</b> is a class containing a set of Svelte stores handled by a small layer of logic. This allows to easily manipulate a dataset <b>sorting</b>, <b>filtering</b> and <b>paging</b>.</p>
 			<p>DataHandler class provides <b>Typescript</b> support.</p>
-			<p>The objective is to speed up and improve the creation of components such as datatables. But any Svelte component can use this abstraction if it needs to sort/filter/paginate objects.</p>
+			<p>The objective is to speed up and improve the creation of components such as datatables. But any Svelte component can use this abstraction if it needs to sort or filter or paginate an array of objects.</p>
 			<div class="install">
 				<Highlight code={"npm install -D @vincjo/svelte-data-handler"} languages={typescript}/>
 			</div>
