@@ -1,7 +1,6 @@
-import { readable, writable, derived } from 'svelte/store'
+import { writable, derived } from 'svelte/store'
 import type { Writable, Readable } from 'svelte/store'
-
-type params = { itemsPerPage: number | null }
+import type { params } from './DataHandler'
 
 export default class Context
 {
@@ -83,7 +82,7 @@ export default class Context
                 const total = $filteredItems.length
 
                 if (!$itemsPerPage) {
-                    return { total:  total, start: 1, end: total }
+                    return { total:  total, start: 0, end: total - 1 }
                 }
                 return {
                     total: total,

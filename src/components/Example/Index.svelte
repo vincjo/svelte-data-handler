@@ -9,6 +9,7 @@
 	import Sort 			from './Sort.svelte'
 	import ItemCount 		from './ItemCount.svelte'
 	import Pagination 		from './Pagination.svelte'
+	import Params 			from './Params.svelte'
 
 
 	const dataHandler = new DataHandler(json, { itemsPerPage: 50 })
@@ -44,6 +45,9 @@
 		<Sort {dataHandler} key={ { name: 'email'     , value: 'email'     } }/>
 		<Sort {dataHandler} key={ { name: 'country'   , value: 'country'   } }/>
 		<Sort {dataHandler} key={ { name: 'first_name + last_name', value: item => { return item.first_name + ' ' + item.last_name } } }/>
+
+		<h1>Params.svelte</h1>
+		<Params {dataHandler}/>
 	</article>
 
 </section>

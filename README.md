@@ -17,7 +17,7 @@
 
 # Install
 ````apache
-npm i -D @vinjo/svelte-data-handler
+npm i -D @vincjo/svelte-data-handler
 ````
 
 <br>

@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node'
+import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 import path from 'path'
 import { config } from 'dotenv'
@@ -15,7 +15,18 @@ const params = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter({ out: 'build' }),
+		adapter: adapter({ 
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html',
+			precompress: false
+		}),
+
+		prerender: {
+			// This can be false if you're using a fallback (i.e. SPA mode)
+			default: false
+		},
+
 		files: {
 			hooks: 'src/hooks',
 		},

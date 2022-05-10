@@ -12,7 +12,7 @@
         // ]},
         { title: 'API', path: '/api', links: [] }
     ]
-    let current = getPath($url)
+    let current = '/'
 </script>
 
 <section>

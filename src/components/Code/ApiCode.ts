@@ -118,3 +118,11 @@ export const getTriggerChange =
 
 </div>
 `
+
+export const updateParams = 
+`<script>
+    dataHandler.updateParams({ 
+        itemsPerPage: 100
+    })
+</script>
+`

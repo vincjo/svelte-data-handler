@@ -6,7 +6,7 @@ import Filters           from '$lib/Handlers/Filters'
 
 import type { Readable, Writable } from 'svelte/store'
 
-type params = { itemsPerPage: number | null }
+export type params = { itemsPerPage: number | null }
 
 export default class DataHandler
 {
@@ -92,5 +92,13 @@ export default class DataHandler
     public getTriggerChange(): Writable<number>
     {
         return this.context.triggerChange
+    }
+
+    public updateParams(params: params): void
+    {
+        if (!params) {
+            this.context.itemsPerPage.set(null)
+        }
+        this.context.itemsPerPage.set(params.itemsPerPage)
     }
 }
