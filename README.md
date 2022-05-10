@@ -119,4 +119,19 @@ const scrollTop = () => {
 	}
 }
 
+
+
+
+/********************
+ *                  *
+ *      Params      *
+ *                  *
+ ********************/
+
+/* Update number of items per pages, can be set to "null" */
+const dataHandler.updateParams({ itemsPerPage: 100 }): void
+
+/* Set no pagination */
+const dataHandler.updateParams(): void
+
 ````
