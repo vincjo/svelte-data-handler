@@ -1,6 +1,6 @@
 {
-  "name": "svelte-data-handler",
-  "version": "0.0.3",
+  "name": "@vincjo/svelte-data-handler",
+  "version": "0.0.4",
   "scripts": {
     "dev": "svelte-kit dev --port 5555",
     "build": "svelte-kit build",
@@ -24,5 +24,22 @@
     "dotenv": "^16.0.0"
   },
   "type": "module",
-  "dependencies": {}
+  "dependencies": {},
+  "description": "Easily manipulate an array of objects",
+  "main": "DataHandler.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincjo/svelte-data-handler.git"
+  },
+  "keywords": [
+    "sorting",
+    "filtering",
+    "paging"
+  ],
+  "author": "vincjo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vincjo/svelte-data-handler/issues"
+  },
+  "homepage": "https://vincjo.fr/svelte-data-handler"
 }

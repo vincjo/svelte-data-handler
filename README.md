@@ -10,8 +10,14 @@
 <br><br>
 
 # Abstract
-**DataHandler** is a class containing a set of Svelte stores handled by a small layer of logic. This allows to easily manipulate a dataset **sorting**, **filtering** and **paging**.
+DataHandler is a single, easy-to-use class to manipulate a dataset **sorting**, **filtering** and **paginating**.
 
+
+It contains a set of Svelte stores handled by a small layer of logic.
+
+DataHandler class provides **Typescript** support.
+
+:arrow_right: **[Documentation](https://vincjo.fr/svelte-data-handler)**
 <br>
 
 
