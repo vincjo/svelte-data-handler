@@ -1,6 +1,6 @@
 {
   "name": "@vincjo/svelte-data-handler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "svelte-kit dev --port 5555",
     "build": "svelte-kit build",
