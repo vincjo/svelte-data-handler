@@ -96,6 +96,7 @@ export default class DataHandler
 
     public updateParams(params: params): void
     {
+        this.setPage(1)
         if (!params) {
             this.context.itemsPerPage.set(null)
         }
